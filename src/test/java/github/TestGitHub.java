@@ -15,6 +15,10 @@ public class TestGitHub {
         open("https://github.com/selenide/selenide");
         $("#wiki-tab").click();
         $("#wiki-body").shouldHave(text("Soft assertions"));
+        $("li.wiki-more-pages-link button").click();
+        $("ul[data-filterable-for='wiki-pages-filter']").shouldHave(text("SoftAssertions"));
+        $x("//a[text()='SoftAssertions']").click();
+        $("div.markdown-body").shouldHave(text("JUnit5"));
     }
 
 
